@@ -92,7 +92,7 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: kahanit/mongodb-sharded
-  tag: 8.2.3
+  tag: 8.2.3-r1
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images

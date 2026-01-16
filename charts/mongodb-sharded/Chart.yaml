@@ -6,7 +6,7 @@ annotations:
     - name: mongodb-exporter
       image: docker.io/kahanit/mongodb-exporter:0.47.2
     - name: mongodb-sharded
-      image: docker.io/kahanit/mongodb-sharded:8.2.3
+      image: docker.io/kahanit/mongodb-sharded:8.2.3-r1
     - name: os-shell
       image: docker.io/kahanit/os-shell:12
   licenses: Apache-2.0
@@ -37,4 +37,4 @@ maintainers:
 name: mongodb-sharded
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mongodb-sharded
-version: 1.0.0
+version: 1.0.1
