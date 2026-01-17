@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socketio-server
+  labels:
+    app: socketio-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: socketio-server
+  template:
+    metadata:
+      labels:
+        app: socketio-server
+    spec:
+      containers:
+        - name: socketio-server
+          image: socketio-server:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          env:
+            - name: PORT
+              value: "3000"
+            - name: NODE_ENV
+              value: "production"
+            - name: CORS_ORIGIN
+              value: "*"
+            - name: REDIS_URL
+              value: "redis://default:f69OMJH4i7@redis-cluster.redis.svc.cluster.local:6379"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+      restartPolicy: Always
