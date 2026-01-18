@@ -4,9 +4,9 @@ metadata:
   name: socketio-ingress
   annotations:
     # WebSocket support
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.org/proxy-read-timeout: "3600s"
+    nginx.org/proxy-send-timeout: "3600s"
+    nginx.org/proxy-connect-timeout: "60s"
     # Enable WebSocket upgrade
     nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
     # Optional: sticky sessions (not strictly needed with Redis adapter)
@@ -16,8 +16,12 @@ metadata:
     # nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - socketio.syncroze.com
+      secretName: syncroze-tls
   rules:
-    - host: socketio.example.com  # Change to your domain
+    - host: socketio.syncroze.com
       http:
         paths:
           - path: /
@@ -27,8 +31,3 @@ spec:
                 name: socketio-server
                 port:
                   number: 3000
-  # Uncomment for TLS
-  # tls:
-  #   - hosts:
-  #       - socketio.example.com
-  #     secretName: socketio-tls
