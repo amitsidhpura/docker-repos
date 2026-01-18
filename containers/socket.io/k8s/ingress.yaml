@@ -8,12 +8,12 @@ metadata:
     nginx.org/proxy-send-timeout: "3600s"
     nginx.org/proxy-connect-timeout: "60s"
     # Enable WebSocket upgrade
-    nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+    nginx.org/upstream-hash-by: "$request_uri"
     # Optional: sticky sessions (not strictly needed with Redis adapter)
-    # nginx.ingress.kubernetes.io/affinity: "cookie"
-    # nginx.ingress.kubernetes.io/session-cookie-name: "socketio-sticky"
-    # nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
-    # nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
+    # nginx.org/affinity: "cookie"
+    # nginx.org/session-cookie-name: "socketio-sticky"
+    # nginx.org/session-cookie-expires: "172800"
+    # nginx.org/session-cookie-max-age: "172800"
 spec:
   ingressClassName: nginx
   tls:
