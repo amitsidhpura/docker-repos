@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: socketio-server
-          image: socketio-server:latest
+          image: docker.io/kahanit/socketio-server:1.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
