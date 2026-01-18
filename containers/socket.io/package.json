@@ -1,6 +1,6 @@
 {
   "name": "socketio-server",
-  "version": "1.0.0",
+  "version": "4.8.3",
   "description": "A clustered Socket.IO server with Redis adapter",
   "main": "server.js",
   "scripts": {
