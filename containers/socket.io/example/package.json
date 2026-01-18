@@ -1,0 +1,12 @@
+{
+  "name": "socketio-test-clients",
+  "version": "1.0.0",
+  "description": "Test app for Socket.IO two-client messaging",
+  "main": "test-two-clients.js",
+  "scripts": {
+    "test": "node test-two-clients.js"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.4"
+  }
+}
